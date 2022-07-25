@@ -42,7 +42,7 @@ def dispalyAll():
         tv.insert("", END, values=row)
 
 
-def add_employee():
+def add_pass():
     if tituloEntry.get() == "" or userEntry.get() == "" or emailEntry.get() == "" or categoriaCombo.get() == "" or passEntry.get() == "" or urlEntry.get() == "":
         messagebox.showerror("Error en la entrada", "Complete todos los detalles")
         return
@@ -51,7 +51,7 @@ def add_employee():
     clearAll()
     dispalyAll()
 
-def update_employee():
+def update_pass():
     if tituloEntry.get() == "" or userEntry.get() == "" or emailEntry.get() == "" or categoriaCombo.get() == "" or passEntry.get() == "" or urlEntry.get() == "":
         messagebox.showerror("Error en la entrada", "Complete todos los detalles")
         return
@@ -61,7 +61,7 @@ def update_employee():
     dispalyAll()
 
 
-def delete_employee():
+def delete_pass():
     db.remove(row[2])
     clearAll()
     dispalyAll()
@@ -108,9 +108,9 @@ root.config(menu=barraMenu)
 
 #Se añaden los nombres de los submenus y comandos
 archivoMenu = Menu(barraMenu, tearoff=0)
-archivoMenu.add_command(label="Añadir", command=add_employee)
-archivoMenu.add_command(label="Actualizar", command=update_employee)
-archivoMenu.add_command(label="Borrar", command=delete_employee)
+archivoMenu.add_command(label="Añadir", command=add_pass)
+archivoMenu.add_command(label="Actualizar", command=update_pass)
+archivoMenu.add_command(label="Borrar", command=delete_pass)
 archivoMenu.add_separator()
 archivoMenu.add_command(label="Salir", command=salirAPP )
 
@@ -193,9 +193,9 @@ frameBoton = Frame(contenido)
 frameBoton.grid(row=6, column=0, columnspan=4, padx=10, pady=10, sticky="w")
 frameBoton.config(bg="lightblue")
 
-addButton = Button(frameBoton, text="Añadir",font=("Calibri", 16, "bold"), width=15, bg="green", fg="white", command=add_employee).grid(row=0, column=0, pady=15, padx=10)
-UpdateButton = Button(frameBoton, text="Actualizar",font=("Calibri", 16, "bold"), width=15, bg="blue", fg="white", command=update_employee).grid(row=0, column=1, pady=15, padx=10)
-borrarButton = Button(frameBoton, text="Borrar",font=("Calibri", 16, "bold"), width=15, bg="red", fg="white", command=delete_employee).grid(row=0, column=2, pady=15, padx=10)
+addButton = Button(frameBoton, text="Añadir",font=("Calibri", 16, "bold"), width=15, bg="green", fg="white", command=add_pass).grid(row=0, column=0, pady=15, padx=10)
+UpdateButton = Button(frameBoton, text="Actualizar",font=("Calibri", 16, "bold"), width=15, bg="blue", fg="white", command=update_pass).grid(row=0, column=1, pady=15, padx=10)
+borrarButton = Button(frameBoton, text="Borrar",font=("Calibri", 16, "bold"), width=15, bg="red", fg="white", command=delete_pass).grid(row=0, column=2, pady=15, padx=10)
 clearButton = Button(frameBoton, text="Limpiar Campos",font=("Calibri", 16, "bold"), width=15, bg="orange", fg="white", command=clearAll).grid(row=0, column=3, pady=15, padx=10)
 todosButton = Button(frameBoton, text="Mostrar Todos",font=("Calibri", 16, "bold"), width=15, bg="black", fg="white", command=dispalyAll).grid(row=1, column=1, columnspan=2, padx=10)
 
